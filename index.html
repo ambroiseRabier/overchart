@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>OverChart</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link href="./css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.css">-->
+    <link href="./css/qtip/jquery.qtip.css" rel="stylesheet" type="text/css" >
+    <link href="./css/select2/select2.min.css" rel="stylesheet">
+    <link href="./css/jquery-ui-sortable/jquery-ui.min.css" rel="stylesheet">
+    <link href="./css/jquery-ui-sortable/jquery-ui.structure.min.css" rel="stylesheet">
+    <link href="./css/fontawesome/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/slider.css" rel="stylesheet">
+    <link href="./css/editor.css" rel="stylesheet">
+    <link href="./css/chart.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="mainscreen">
+        <div class="main-body">
+            <button type="button" class="btn btn-primary btn-Editor" title="edit or create your own rules JSON" value="button">
+                Editor
+            </button>
+            <button type="button" class="btn btn-primary btn-Chart" title="choose a team and rules to be used and get an OverChart"/>
+                Chart
+            </button>
+        </div>
+        <a href="http://rabierambroise.fr/" class="main-credit">Developed by Ambroise Rabier</a>
+    </div>
+
+
+    <div class="editorscreen" style="display: none;">
+        <div class="editor-menu">
+            <label for="editor-input-file">Load </label>
+            <input id="editor-input-file" type="file" name="files"/>
+            <button type="button" class="btn btn-primary editor-save" title="save your JSON"/>
+                Save
+            </button>
+            <button type="button" class="btn btn-primary editor-create" title="create your JSON"/>
+                Create
+            </button>
+            <button type="button" class="btn btn-primary editor-load-default" title="use default JSON"/>
+                Load Default
+            </button>
+            <button type="button" class="btn btn-primary editor-back" title="return to menu"/>
+                Back To Menu
+            </button>
+        </div>
+        <span class="editor-json-selected"></span>
+        <div class="editor-json-heroes"></div>
+        <div class="editor-add-related" style="display: none;">
+            <div class="editor-input-container">
+
+                <button class="editor-input-choice">
+                    <i class="fa fa-adjust" aria-hidden="true"></i>
+                </button>
+
+                <div class="editor-input-container-pro" style="display: none;">
+                    <label for="editor-input-command">Quick add </label>
+                    <input type="text" id="editor-input-command" placeholder="winston < bastion">
+                    <input type="submit" class="editor-input-submit" value="Add">
+                </div>
+
+                <div class="editor-input-container-easy">
+                    <div class="editor-input-first-heroe-container">
+                        <select id="editor-input-first-heroe" class="select2"></select>
+                    </div>
+                    <div style="display: inline-block;">
+                        <select id="editor-input-filter" class="select2">
+                            <option value="<"><</option>
+                            <option value=">">></option>
+                            <option value="+">+</option>
+                        </select>
+                    </div>
+                    <div class="editor-input-second-heroe-container">
+                        <select id="editor-input-second-heroe" class="select2"></select>
+                    </div>
+                    <input type="submit" class="editor-input-submit" value="Add">
+                </div>
+
+            </div>
+            <textarea id="editor-input-reason" rows="4" cols="50" placeholder="Explain why here"></textarea>
+        </div>
+        <div class="editor-heroe-data"></div>
+        <div class="editor-map-synergy" style="display: none">
+            <div class="editor-map-synergy-header">
+                <h1 style="color: whitesmoke;text-align: center;">Synergy with Maps</h1>
+                <p class="switch-text-attack">Attack</p>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <p class="switch-text-defense">Defense</p>
+            </div>
+        </div>
+        <a id="editor-save" href="" style="display: none;"></a>
+    </div>
+
+    <div class="chartscreen" style="display: none;">
+        <div class="chart-menu">
+            <input id="chart-input-file" type="file" name="files" multiple/>
+            <div class="chart-menu-team-container">
+                <select multiple="true" id="chart-menu-team-attack" style="display: none;" class="select2">
+                </select>
+                <select multiple="true" id="chart-menu-team-defend" style="display: none;" class="select2">
+                </select>
+                <select multiple="true" id="chart-menu-map" style="display: none;" class="select2">
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary chart-back" title="return to menu"/>
+                Back To Menu
+            </button>
+
+        </div>
+
+        <div id="chart-cy"></div>
+        <div class="chart-loading" style="display: none;">
+            <p>Loading Chart, please wait..</p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" data-main="./scripts/main.js"  src="./scripts/require.js" ></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

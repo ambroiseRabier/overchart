@@ -1,0 +1,32 @@
+
+
+body {
+    font-family: helvetica;
+    font-size: 14px;
+    background-color: rgb(51, 51, 51);
+    /* for shake effect in editor*/
+    overflow-x: hidden;
+}
+
+.mainscreen{
+
+}
+
+.main-body{
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    position: absolute;
+}
+
+.main-credit{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    color:floralwhite;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    text-decoration : underline;
+}

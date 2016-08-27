@@ -1,0 +1,100 @@
+
+
+.chart-menu{
+    text-align: center;
+    background-color: rgba(91,91,91,0.5);
+}
+
+.chart-menu-flag{
+    height: 30px;
+    width: auto;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .chart-menu-team-container{
+        width: 95%;
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 992px) {
+    .chart-menu-team-container{
+        width: 75%;
+        display: inline-block;
+    }
+}
+
+.chart-menu .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    /* center li element*/
+    /*width: inherit;*//* conflict whit placeholder :/*/
+    /*maybe not anymore whit width hack in js*/
+}
+
+
+#chart-input-file{
+    color:white;
+    display: inline-block;
+}
+
+#chart-cy {
+    /* no display:none in html then .show() or chart won't show*/
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    /*top: 0;*/
+    bottom:0;
+    z-index: -1;
+}
+
+.chart-loading{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    color:white;
+}
+
+.tip-synergy{
+    color: green;
+    font-size: 1.1em;
+}
+
+.tip-weak{
+    color: red;
+    font-size: 1.1em;
+}
+
+/* http://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and */
+.qtip ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+}
+
+.qtip li.tip-synergy:before{
+    content: "+";
+    display: block;
+    float: left;
+    width: 1.2em;
+    color:green;
+    font-weight: bolder;
+}
+
+.qtip li.tip-weak:before{
+    content: "-";
+    display: block;
+    float: left;
+    width: 1.2em;
+    color:red;
+    /*font-size: 2em;*/
+}
+
+.tip-hero-name{
+    font-weight: bold;
+}

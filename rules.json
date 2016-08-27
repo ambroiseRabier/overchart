@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "author": "Author",
+    "name": "My lovely rules",
+    "background-color": "white"
+  },
+  "genji": {
+    "<": {
+      "mccree": {
+        "reason": "fmlkgjdslfjds"
+      }
+    },
+    "+": {},
+    "map+": [
+      "ATTACK ANUBIS A",
+      "ATTACK HANAMURA B",
+      "ATTACK DORADO 3",
+      "ATTACK HOLLYWOOD A",
+      "ATTACK VOLSKAYA A",
+      "ATTACK NUMBANI A",
+      "ATTACK ROUTE_66 2"
+    ],
+    "map-": [
+      "ATTACK ANUBIS B",
+      "ATTACK DORADO 2",
+      "ATTACK GIBRALTAR 1",
+      "ATTACK KING_ROW 1",
+      "ATTACK NUMBANI 1",
+      "ATTACK ROUTE_66 1"
+    ]
+  },
+  "mccree": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "pharah": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "reaper": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "soldier": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "tracer": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "bastion": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "hanzo": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "junkrat": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "mei": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "torbjorn": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "widowmaker": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "dva": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "reinhardt": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "roadhog": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "winston": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "zarya": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "ana": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "lucio": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "mercy": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "symmetra": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  },
+  "zenyatta": {
+    "<": {},
+    "+": {},
+    "map+": [],
+    "map-": []
+  }
+}

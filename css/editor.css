@@ -1,0 +1,245 @@
+
+
+.editor-menu{
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.editor-btn-save{
+    display: inline-block;
+    margin-left: 40px;
+}
+
+#editor-input-file{
+    display: inline-block;
+    color: white;
+}
+
+.editor-input-container{
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    position: relative;
+}
+
+#editor-input-command{
+}
+
+#editor-input-reason{
+    display: inline-block;
+    width: 49%;
+}
+
+.editor-input-submit{
+    display: inline-block;
+    width: 5em;
+    margin-top: 10px;
+}
+
+.editor-json-heroes{
+    width: 100%;
+    text-align: center;
+    background-color: darkorange;
+}
+
+.editor-json-heroes img{
+    background-color: rgb(238,238,238);
+    width: 112px;
+    height:100px;
+}
+
+.editor-json-heroes img:hover{
+    background-color: white;
+}
+
+.editor-heroe-data{
+    width: 100%;
+}
+
+.editor-related-heroe-img{
+    width: 60px;
+    height: auto;
+    display: inline-block;
+    background-color:chocolate;
+}
+
+.editor-heroe-list {
+    text-align: center;
+    padding-right: 40px;
+}
+
+.editor-heroe-list li{
+    background-color: wheat;
+    text-align: left;
+    /* position relativ so delete button can be placed on absolute on right 0px*/
+    position: relative;
+}
+
+.editor-heroe-list h1{
+    /*background-color: white;*/
+    display: inline-block;
+}
+
+.editor-related-heroe-text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 18px;
+}
+
+.editor-related-heroe-text p{
+    margin:0;
+}
+
+.editor-related-heroe-text p span{
+    font-weight: bold;
+}
+
+.editor-add-related{
+    text-align: center;
+    background-color: cornflowerblue;
+    padding: 10px;
+}
+
+.editor-json-selected{
+    /* same size as img of hero */
+    position: absolute;
+    width: 112px;
+    height: 100px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border: 3px solid white;
+    display: none;
+}
+
+.editor-delete-related{
+    position: absolute;
+    right: 0px;
+    color:sienna;
+}
+
+.editor-map-synergy{
+    text-align: center;
+}
+
+.editor-map-synergy-header{
+
+}
+
+.editor-map-synergy-element{
+    position: relative;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.editor-map-synergy-element-point-container{
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    -webkit-transform: translate(-50%,-20%);
+    transform: translate(-50%,-20%);
+    white-space: nowrap;
+}
+
+.editor-map-synergy-element-point{
+    display: inline-block;
+    position: relative;
+    background-color: ghostwhite;
+    opacity: 0.6;
+    font-size: 2.5em;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.editor-map-synergy img{
+    width: 320px;
+    height: 170px;
+    z-index: 0;
+}
+
+
+.editor-map-synergy-element:hover{
+    z-index: 2;
+}
+
+.editor-map-synergy img:hover{
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.editor-map-synergy-element-point:hover{
+    opacity: 1;
+}
+
+.editorscreen span.selection > span {
+    height: 31px;
+}
+
+.editor-input-first-heroe-container{
+    display: inline-block;
+    width: 40%;
+}
+
+.editor-input-second-heroe-container{
+    display: inline-block;
+    width: 40%;
+}
+
+.editor-input-choice{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1em;
+    color: black;
+}
+
+.editor-input-container-easy{
+    position: relative;
+    top:30px;
+}
+
+
+
+/*********************************/
+
+@media screen and (max-width: 768px) {
+    .editor-json-heroes img, .editor-json-selected{
+        /* 3/4 size*/
+        width: 84px;
+        height:75px;
+    }
+    #editor-input-reason{
+        width: 100%;
+    }
+    .editor-input-container{
+        width: 100%;
+    }
+    .editor-input-choice{
+        display: none;
+    }
+    .editor-input-container-easy{
+        position: initial;
+    }
+    .editor-input-submit{
+        width: initial;
+        margin-top: initial;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    .editor-json-heroes img, .editor-json-selected{
+        /* half size*/
+        width: 56px;
+        height:50px;
+    }
+}
