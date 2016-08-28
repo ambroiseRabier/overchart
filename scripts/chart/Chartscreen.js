@@ -58,6 +58,8 @@ define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
             screenSelect2.addMapSelect(map, MAP_PLACEHOLDER, onOptionsChange);
             screenSelect2.hideSoftKeyboard();
             hackCssPlaceholder();
+            _this.display.find(".retractible").click(onOptionsChange); // solve problem whit chart on click..
+            $(window).on("orientationchange", onOptionsChange); // reload css..
         }
 
         function hackCssPlaceholder(){

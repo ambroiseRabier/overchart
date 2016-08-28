@@ -30,3 +30,19 @@ body {
     margin-bottom: 5px;
     text-decoration : underline;
 }
+
+.retractible{
+    height:15px;
+    background-color: #00b3ee;
+    color:white;
+    margin: auto;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 15px;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.retractible-fa-correction{
+    transform: translate(0,-50%);
+}

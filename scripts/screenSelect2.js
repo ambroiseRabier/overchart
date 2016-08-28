@@ -3,7 +3,8 @@
  * Created by RABIERAmbroise on 20/08/2016.
  */
 
-define(["jquery","mapsSorted","heroesSorted","onlyMap"], function ($, mapsSorted, heroesSorted, onlyMap) {
+define(["jquery","mapsSorted","heroesSorted","onlyMap","config"],
+function ($, mapsSorted, heroesSorted, onlyMap, config) {
     // add possibility to sort by drag and drop
     function select2_sortable($select2, pCallback){
         var ul = $select2.next('.select2-container').first('ul.select2-selection__rendered');
@@ -131,7 +132,7 @@ define(["jquery","mapsSorted","heroesSorted","onlyMap"], function ($, mapsSorted
         },
 
         hideSoftKeyboard: function(p$){
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            if (config.isMobile) {
                 $(".select2-search__field").attr("readonly", true);
             }
 

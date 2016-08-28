@@ -105,6 +105,9 @@
     <div class="chartscreen" style="display: none;">
         <div class="chart-menu">
             <input id="chart-input-file" type="file" name="files" multiple/>
+            <button type="button" class="btn btn-primary chart-back" title="return to menu"/>
+                Back To Menu
+            </button>
             <div class="chart-menu-team-container">
                 <select multiple="true" id="chart-menu-team-attack" style="display: none;" class="select2">
                 </select>
@@ -113,13 +116,13 @@
                 <select multiple="true" id="chart-menu-map" style="display: none;" class="select2">
                 </select>
             </div>
-            <button type="button" class="btn btn-primary chart-back" title="return to menu"/>
-                Back To Menu
-            </button>
-
+        </div>
+        <div class="retractible" data-menu=".chart-menu">
+            <i class="fa fa-sort-asc fa-sort-desc" aria-hidden="true"></i>
         </div>
 
         <div id="chart-cy"></div>
+
         <div class="chart-loading" style="display: none;">
             <p>Loading Chart, please wait..</p>
         </div>

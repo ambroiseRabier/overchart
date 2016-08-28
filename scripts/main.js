@@ -41,8 +41,8 @@ require.config({
 
 //
 //
-require(["mainscreen","bootstrap"], function(mainscreen) /// on peut mettre un chemin ici ou ds path.
+require(["mainscreen","retractible-menu","bootstrap"], function(mainscreen, retractibleMenu) /// on peut mettre un chemin ici ou ds path.
 {
     mainscreen();
-
+    retractibleMenu();
 });
