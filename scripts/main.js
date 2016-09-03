@@ -12,7 +12,7 @@ require.config({
     paths: {
         jquery:"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min",//"./jquery-2.2.4.min",
         //cookie:"libs/jquery-cookie/jquery.cookie"
-        bootstrap:"./libs/bootstrap.min", //"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min", //
+        //bootstrap:"./libs/bootstrap.min", //"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min", //
         cytoscape:"./libs/cytoscape.min", // "http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min"
         qtip:"./libs/jquery.qtip.min", //"https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min",//
         "cytoscape-qtip":"./cytoscape-qtip",
@@ -20,9 +20,9 @@ require.config({
         jqueryUI:"./libs/jquery-ui-sortable-and-effects/jquery-ui.min"
     },
     shim: {
-        "bootstrap": {
+        /*"bootstrap": {
             deps:["jquery"]
-        },
+        },*/
         "cytoscape": {
             deps:["jquery"]
         },
@@ -33,7 +33,7 @@ require.config({
             deps:["jquery","qtip","cytoscape"]
         },
         select2: {
-            deps:["jquery"],
+            deps:["jquery"]
             /*exports: "$.fn.select2"*/
         },
         jqueryUI:{
@@ -45,7 +45,7 @@ require.config({
 
 //
 //
-require(["jquery","mainscreen","retractibleMenu","help","bootstrap"], function($, mainscreen, retractibleMenu, help) /// on peut mettre un chemin ici ou ds path.
+require(["jquery","mainscreen","retractibleMenu","help"/*,"bootstrap"*/], function($, mainscreen, retractibleMenu, help) /// on peut mettre un chemin ici ou ds path.
 {
     $(".main-loading").hide();
     mainscreen();

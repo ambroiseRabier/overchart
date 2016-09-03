@@ -10,7 +10,7 @@
 define(["jquery","editor/EditorAdd","editor/EditorRelated","editor/EditorMapSynergy",
     "security/checkJSON", "security/secureJSON", "config"],
 function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, config) {
-    const SAVE_NAME = "rules.json";
+    /** @const */ var SAVE_NAME = "rules.json";
 
     return function(){
         this.display = $(".editorscreen");

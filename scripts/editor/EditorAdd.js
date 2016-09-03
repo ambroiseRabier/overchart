@@ -5,11 +5,11 @@
 
 
 define(["jquery","../heroes","screenSelect2"], function ($, heroes, screenSelect2) {
-    const COUNTER = ">";
-    const WEAKTO = "<";
-    const SYNERGY = "+";
-    const MAP_PLACEHOLDER = "Choose map-filter (optional)";
-    const HEROE_FIRST_PLACEHOLDER = "winston";
+    /** @const */ var COUNTER = ">";
+    /** @const */ var WEAKTO = "<";
+    /** @const */ var SYNERGY = "+";
+    /** @const */ var MAP_PLACEHOLDER = "Choose map-filter (optional)";
+    /** @const */ var HEROE_FIRST_PLACEHOLDER = "winston";
 
     return function(pEditor){
         this.display = $(".editor-add-related");
@@ -157,7 +157,7 @@ define(["jquery","../heroes","screenSelect2"], function ($, heroes, screenSelect
 
             if (pEditor.ruleFile[pParams.command[0]][pParams.command[1]][pParams.command[2]] === undefined){
                 pEditor.ruleFile[pParams.command[0]][pParams.command[1]][pParams.command[2]] = {
-                    reason:pParams.reason,
+                    reason:pParams.reason
                 };
             } else {
                 // already an related hero here

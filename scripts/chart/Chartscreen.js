@@ -7,11 +7,11 @@ define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
     "security/checkJSON","security/secureJSON","screenSelect2","config","jqueryUI","select2"],
 function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenSelect2, config) {
 
-    const SIDE_ATTACK = "ATTACK";
-    const SIDE_DEFENSE = "DEFENSE";
-    const TEAM_ATTACK_PLACEHOLDER = "Choose attacker team";
-    const TEAM_DEFENCE_PLACEHOLDER = "Choose defender team";
-    const MAP_PLACEHOLDER = "Choose map (optional)";
+    /** @const */ var SIDE_ATTACK = "ATTACK";
+    /** @const */ var SIDE_DEFENSE = "DEFENSE";
+    /** @const */ var TEAM_ATTACK_PLACEHOLDER = "Choose attacker team";
+    /** @const */ var TEAM_DEFENCE_PLACEHOLDER = "Choose defender team";
+    /** @const */ var MAP_PLACEHOLDER = "Choose map (optional)";
     var DEFAULT_TEAM_ATTACK = [
         heroes.LUCIO,
         heroes.MERCY,

@@ -12,7 +12,7 @@ define(["heroes"], function (heroes) {
             heroes.PHARAH,
             heroes.REAPER,
             heroes.SOLDIER,
-            heroes.TRACER,
+            heroes.TRACER
         ],
         DEFENSE:[
             heroes.BASTION,
@@ -20,21 +20,21 @@ define(["heroes"], function (heroes) {
             heroes.JUNKRAT,
             heroes.MEI,
             heroes.TORBJORN,
-            heroes.WIDOWMAKER,
+            heroes.WIDOWMAKER
         ],
         TANK:[
             heroes.DVA,
             heroes.REINHARDT,
             heroes.ROADHOG,
             heroes.WINSTON,
-            heroes.ZARYA,
+            heroes.ZARYA
         ],
         SUPPORT:[
             heroes.ANA,
             heroes.LUCIO,
             heroes.MERCY,
             heroes.SYMMETRA,
-            heroes.ZENYATTA,
+            heroes.ZENYATTA
         ]
     };
 

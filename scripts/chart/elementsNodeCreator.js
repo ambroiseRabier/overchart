@@ -4,14 +4,14 @@
  */
 
 define(["../heroes","config"], function (heroes, config) {
-    const WEAKTO = "<";
-    const SYNERGY = "+";
-    const FILTER_MAP_GOOD = "map+";
-    const FILTER_MAP_BAD = "map-";
-    const WEAKTO_CLASS = "tip-weak";
-    const SYNERGY_CLASS = "tip-synergy";
-    const SIDE_ATTACK = "ATTACK";
-    const SIDE_DEFENSE = "DEFENSE";
+    /** @const */ var WEAKTO = "<";
+    /** @const */ var SYNERGY = "+";
+    /** @const */ var FILTER_MAP_GOOD = "map+";
+    /** @const */ var FILTER_MAP_BAD = "map-";
+    /** @const */ var WEAKTO_CLASS = "tip-weak";
+    /** @const */ var SYNERGY_CLASS = "tip-synergy";
+    /** @const */ var SIDE_ATTACK = "ATTACK";
+    /** @const */ var SIDE_DEFENSE = "DEFENSE";
 
     var uniqueID = 0;
     var inputHeroes; // {attack:[], defence:[]}

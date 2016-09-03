@@ -4,7 +4,7 @@
 
 // add retractible class, enjoy.
 define(["jquery"], function ($) {
-    const RETRACTIBLE_SELECTOR = ".retractible";
+    /** @const */ var RETRACTIBLE_SELECTOR = ".retractible";
 
     return function (){
         var $retractible = $(RETRACTIBLE_SELECTOR);
@@ -12,13 +12,13 @@ define(["jquery"], function ($) {
         $retractible.each(function(){
             var lElement = $(this);
             var lMenu = $(lElement.data("menu"));
-            var lIcon = lElement.find(".fa");
+            var lIcon = lElement.find(".icon-sort-down");
             var lSwitch = false;
 
             lElement.click(function(){
                 lMenu.toggle();
                 //lSwitch ? lIcon.
-                lIcon.toggleClass( "fa-sort-asc" );
+                lIcon.toggleClass( "icon-sort-up" );
                 lIcon.toggleClass( "retractible-fa-correction" );
             });
         });

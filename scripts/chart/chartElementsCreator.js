@@ -5,8 +5,8 @@
 
 
 define(["chart/elementsNodeCreator", "chart/elementsEdgeCreator"], function (nodeCreator, edgeCreator) {
-    const SIDE_ATTACK = "attack";
-    const SIDE_DEFENSE = "defense";
+    /** @const */ var SIDE_ATTACK = "attack";
+    /** @const */ var SIDE_DEFENSE = "defense";
 
 
 

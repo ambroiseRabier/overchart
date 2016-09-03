@@ -11,7 +11,7 @@ define(['jquery'], function ($) {
         MAP_COLOR_GOOD_CONFLICT:"green", // dark green
         MAP_COLOR_BAD:"red",
         MAP_COLOR_BAD_CONFLICT:"darkred",
-        BACKGROUND_COLOR:"rgb(51, 51, 51)", // some black
+        BACKGROUND_COLOR:"rgb(51, 51, 51)" // some black
     };
 
     config.chart = {

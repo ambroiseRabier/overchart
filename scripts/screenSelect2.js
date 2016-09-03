@@ -138,7 +138,7 @@ function ($, mapsSorted, heroesSorted, onlyMap, config) {
                     //tags:getValues(maps),
                     data:getDataMap(mapsSorted.sorted),
                     placeholder:pPlaceholder,
-                    minimumResultsForSearch: -1,
+                    minimumResultsForSearch: -1
                 }).on("change", pCallBack)
             ).done(function () {
                 select2_sortable(p$ID ,pCallBack);

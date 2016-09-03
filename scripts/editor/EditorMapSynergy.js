@@ -3,10 +3,10 @@
  */
 
 define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
-    const FILTER_MAP_GOOD = "map+";
-    const FILTER_MAP_BAD = "map-";
-    const SIDE_ATTACK = "ATTACK";
-    const SIDE_DEFENSE = "DEFENSE";
+    /** @const */ var FILTER_MAP_GOOD = "map+";
+    /** @const */ var FILTER_MAP_BAD = "map-";
+    /** @const */ var SIDE_ATTACK = "ATTACK";
+    /** @const */ var SIDE_DEFENSE = "DEFENSE";
 
     var orderCssClick = [
         "",

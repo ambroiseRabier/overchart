@@ -5,8 +5,8 @@
 
 
 define(["config"], function (config) {
-    const WEAKTO_CLASS = "tip-weak";
-    const SYNERGY_CLASS = "tip-synergy";
+    /** @const */ var WEAKTO_CLASS = "tip-weak";
+    /** @const */ var SYNERGY_CLASS = "tip-synergy";
 
     function createEdge(pSource, pTarget, pColor){
         if(pColor == WEAKTO_CLASS)

@@ -25,7 +25,7 @@ define([], function () {
         // Control maps
         ILIOS:"Ilios",
         LIJANG_TOWER:"Lijiang Tower",
-        NEPAL:"Nepal",
+        NEPAL:"Nepal"
     };
 
 });

@@ -5,9 +5,9 @@
 
 define(["jquery","../heroes","screenSelect2"],
 function ($, heroes, screenSelect2) {
-    const WEAKTO = "<";
-    const COUNTER = ">";
-    const SYNERGY = "+";
+    /** @const */ var WEAKTO = "<";
+    /** @const */ var COUNTER = ">";
+    /** @const */ var SYNERGY = "+";
     var filterToH1={
         "<": "<h1 title='weak to' style='color:red;'><</h1>",
         ">": "<h1 title='counter to' style='color:#02c5ff;'>></h1>",
@@ -67,7 +67,7 @@ function ($, heroes, screenSelect2) {
 
                 var liElement =  $("<li></li>");
                 var destroyBtn = {
-                    $:$("<button class='editor-delete-related'><i class='fa fa-times' aria-hidden='true'></i></button>"),
+                    $:$("<button class='editor-delete-related'><i class='icon-cancel' aria-hidden='true'></i></button>"),
                     heroe:pHeroe,
                     filter:pFilter,
                     relatedHeroe:pRelatedHeroe

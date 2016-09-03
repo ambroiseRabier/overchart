@@ -6,7 +6,7 @@
 define(["heroes"], function (heroes) {
     function checkRelatedHero(pRelatedHero){
         var property = [
-            "reason",
+            "reason"
         ];
 
         for (var lProperty in pRelatedHero){
