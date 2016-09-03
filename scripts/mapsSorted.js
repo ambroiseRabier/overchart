@@ -34,6 +34,9 @@ define(["onlyMap"], function (map) {
             map.NUMBANI + " A",
             map.NUMBANI + " 1",
             map.NUMBANI + " 2",
+            map.EINCHELWALDE + " A",
+            map.EINCHELWALDE + " 1",
+            map.EINCHELWALDE + " 2",
 
             map.ILIOS + " Lighthouse",
             map.ILIOS + " Ruins",
@@ -67,15 +70,28 @@ define(["onlyMap"], function (map) {
         "HOLLYWOOD": ["A", "1", "2"],
         "KING_ROW": ["A", "1", "2"],
         "NUMBANI": ["A", "1", "2"],
+        "EINCHELWALDE":["A", "1", "2"],
 
         "ILIOS": ["Lighthouse", "Ruins", "Well"],
         "LIJANG_TOWER": ["Control Center", "Garden", "Night Market"],
         "NEPAL": ["Sanctum", "Shrine", "Village"]
     };
 
+    function isControlMap(pMap){
+        var controlMap = [
+            "ILIOS",
+            "LIJANG_TOWER",
+            "NEPAL"
+        ];
+        if (controlMap.indexOf(pMap) !== -1)
+            return true;
+        return false
+    }
+
     // copy ATTACK to DEFENSE because map doesn't differ from side
     return {
         list: getList(),
-        sorted: objSorted
+        sorted: objSorted,
+        isControlMap:isControlMap
     };
 });

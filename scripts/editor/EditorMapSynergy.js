@@ -15,31 +15,38 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
     ];
 
     return function(pEditor){
-        var display = $(".editor-map-synergy");
-        this.display = display; // todo : only one var display
-        var $Switch = display.find(".switch-container");
-        var $Point;
+        this.display = $(".editor-map-synergy");
         var _this = this;
+        var $Switch = $(".switch-container"); // this.display.find(".switch-container") worked a time ago, and now it doesn't (wtf ?????)
+        var $Point;
         var isInit = false;
         var mapSide = SIDE_ATTACK;
 
         function init(){
             $Switch.find(".slider").click(onClickSwitch);
             for (var mapName in mapSorted.sorted){
-                display.append(createMapElement(mapName, mapSorted.sorted[mapName]));
+                _this.display.append(createMapElement(mapName, mapSorted.sorted[mapName]));
             }
             $Point = $(".editor-map-synergy-element-point");
             $Point.click(onClickPoint);
+
+            if (!config.isMobile){
+                $Point.mouseenter(onMouseEnterPointMap);
+                $Point.parent().mouseleave(onMouseLeavePointMapContainer);
+            }
         }
 
         function createMapElement(mapName, mapArrayPoints){
             var result = $("<div class='editor-map-synergy-element'></div>");
-            result.append("<img src='./img/map/"+mapName+".jpg'>");
+            result.append("<img src='"+config.pathMap+mapName+".jpg'>");
 
             var container = $("<div class='editor-map-synergy-element-point-container'></div>");
             for (var i=0;i<mapArrayPoints.length;i++){
+                var cssClassPoint = mapSorted.isControlMap(mapName) ? "editor-point-square" : "editor-point-circle";
+
+
                 container.append(
-                    "<div class='editor-map-synergy-element-point' " +
+                    "<div class='editor-map-synergy-element-point "+cssClassPoint+"' " +
                     "data-state='0'"+
                     "data-point='"+mapArrayPoints[i]+"'" +
                     "data-map='"+mapName+"'>" +
@@ -72,6 +79,22 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
 
         function onClickPoint(pEvent){
             var $element = $(pEvent.target);
+
+            if (mapSorted.isControlMap($element.data("map")))
+                onClickPointActionControlMap($element);
+            else
+                onClickPointAction($element);
+
+            if (config.isMobile)
+                displayMapPoint({
+                    $img:$element.parent().parent().find("img"), // barbaric way to get the img inside editor-map-synergy-element
+                    side:mapSide,
+                    map:$element.data("map"),
+                    point:$element.data("point")
+                });
+        }
+
+        function onClickPointAction($element){
             var completeMapRef = getMapRef($element);
 
             if ($element.data("state") === 0){
@@ -88,10 +111,32 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
             }
         }
 
+        function onClickPointActionControlMap($element){
+            var attackMapRef = SIDE_ATTACK +" "+ $element.data("map") +" "+ $element.data("point");
+            var defenceMapRef = SIDE_DEFENSE +" "+ $element.data("map") +" "+ $element.data("point");
+
+            if ($element.data("state") === 0){
+                addMapToJSON(attackMapRef , FILTER_MAP_GOOD);
+                addMapToJSON(defenceMapRef , FILTER_MAP_GOOD);
+                setColor($element, 1);
+            }
+            else if ($element.data("state") === 1){
+                addMapToJSON(attackMapRef, FILTER_MAP_BAD);
+                addMapToJSON(defenceMapRef, FILTER_MAP_BAD);
+                setColor($element, 2);
+            }
+            else if ($element.data("state") === 2){
+                removeMapToJSON(attackMapRef);
+                removeMapToJSON(defenceMapRef);
+                setColor($element, 0);
+            }
+        }
+
         function onClickSwitch(pEvent) {
             // AVOID PROPAGATION OF THE EVENT (this function won't be called two time for each click)
             //pEvent.preventDefault();
             // i changed the element that is listened, work too.
+
             if ($Switch.find("input").prop('checked'))
                 mapSide = SIDE_ATTACK;
             else
@@ -122,6 +167,39 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
                 else
                     setColor($element, 0);
             });
+        }
+
+        function onMouseEnterPointMap(pEvent){
+            var $element = $(pEvent.target);
+
+            displayMapPoint({
+                $img:$element.parent().parent().find("img"), // barbaric way to get the img inside editor-map-synergy-element
+                side:mapSide,
+                map:$element.data("map"),
+                point:$element.data("point")
+            });
+        }
+
+        function onMouseLeavePointMapContainer(pEvent){
+            var $element = $(pEvent.currentTarget); // todo:vérifier que currentarget fonctionne bien (a priori oui)
+
+            displayMapPoint({
+                $img:$element.parent().find("img"), // barbaric way to get the img inside editor-map-synergy-element
+                map:$element.children()[0].getAttribute('data-map')
+            });
+        }
+
+        // pParams: {$img, side, map, point}
+        function displayMapPoint(pParams){
+            if (pParams.point === undefined)
+                pParams.$img.attr("src",config.pathMap+pParams.map+".jpg");
+            else{
+                // i don't want double of img for control map
+                if (!mapSorted.isControlMap(pParams.map))
+                    pParams.$img.attr("src",config.pathMap + pParams.side +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
+                else
+                    pParams.$img.attr("src",config.pathMap + SIDE_ATTACK +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
+            }
         }
 
         this.show = function(pHeroe){

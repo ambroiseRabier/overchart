@@ -95,7 +95,9 @@ function ($, mapsSorted, heroesSorted, onlyMap, config) {
     }
 
     return {
-        addHeroesSelect: function(p$ID, pPlaceholder, pCallBack){
+        addHeroesSelect: function(p$ID, pPlaceholder, pCallBack, pDisabled){
+            if (pDisabled === undefined)
+                pDisabled = false;
             // don't display until select2 is loaded (not realy needed)
             $.when(
                 p$ID.select2({
@@ -105,10 +107,23 @@ function ($, mapsSorted, heroesSorted, onlyMap, config) {
                     data:getDataHeroe(heroesSorted),
                     placeholder:pPlaceholder,
                     minimumResultsForSearch: -1, // to hide search bar
+                    disabled: pDisabled,
                     templateResult: format,
                     templateSelection: format,
                     escapeMarkup: function(m) { return m; }
-                }).on("change", pCallBack)
+                }).on(
+                    "change",
+                    pCallBack
+                )/*.on( // prevent sorting, seem like i don't need this (it doesn't sort actually)
+                    "select2:select",
+                function (evt) {
+                    var element = evt.params.data.element;
+                    var $element = $(element);
+
+                    $element.detach();
+                    $(this).append($element);
+                    $(this).trigger("change");
+                })*/
             ).done(function () {
                 select2_sortable(p$ID ,pCallBack);
                 p$ID.show();

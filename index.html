@@ -21,7 +21,10 @@
 
 
     <div class="mainscreen">
-        <div class="main-body">
+        <div class="main-background"></div>
+
+        <div class="main-loading">Loading, please wait..</div>
+        <div class="main-body" style="display: none;">
             <button type="button" class="btn btn-primary btn-Editor" title="edit or create your own rules JSON" value="button">
                 Editor
             </button>
@@ -34,6 +37,8 @@
 
 
     <div class="editorscreen" style="display: none;">
+        <div class="editor-background"></div>
+
         <div class="editor-menu">
             <label for="editor-input-file">Load </label>
             <input id="editor-input-file" type="file" name="files"/>
@@ -49,6 +54,7 @@
             <button type="button" class="btn btn-primary editor-back" title="return to menu"/>
                 Back To Menu
             </button>
+            <div class="help" data-help="editor-menu"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
         </div>
         <span class="editor-json-selected"></span>
         <div class="editor-json-heroes"></div>
@@ -88,7 +94,12 @@
         <div class="editor-heroe-data"></div>
         <div class="editor-map-synergy" style="display: none">
             <div class="editor-map-synergy-header">
-                <h1 style="color: whitesmoke;text-align: center;">Synergy with Maps</h1>
+                <h1 style="color: whitesmoke;text-align: center;">
+                    Synergy with Maps
+                </h1>
+                <div class="help" data-help="editor-map-synergy">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </div>
                 <p class="switch-text-attack">Attack</p>
                 <div class="switch-container">
                     <label class="switch">
@@ -102,9 +113,15 @@
         <a id="editor-save" href="" style="display: none;"></a>
     </div>
 
+
     <div class="chartscreen" style="display: none;">
+        <div class="chart-background"></div>
+
         <div class="chart-menu">
             <input id="chart-input-file" type="file" name="files" multiple/>
+            <div class="help" data-help="chart">
+                <i class="fa fa-question-circle" aria-hidden="true"></i>
+            </div>
             <button type="button" class="btn btn-primary chart-back" title="return to menu"/>
                 Back To Menu
             </button>

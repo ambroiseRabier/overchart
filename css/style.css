@@ -12,6 +12,37 @@ body {
 
 }
 
+.main-background, .editor-background, .chart-background{
+    background-image:url("../img/Overwatch_circle_logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    opacity: 0.2;
+}
+
+.mainscreen button{
+    transform: scale(2);
+}
+
+.mainscreen .btn-Editor{
+    margin-right: 100px;
+}
+
+.main-loading{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-size: 3em;
+}
+
 .main-body{
     width: 100%;
     text-align: center;
@@ -39,10 +70,44 @@ body {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     font-size: 15px;
-    transition: all 0.5s;
     text-align: center;
+    cursor: pointer;
 }
 
 .retractible-fa-correction{
+    -webkit-transform: translate(0,-50%);
     transform: translate(0,-50%);
+}
+
+.help{
+    display: inline-block;
+    color:white;
+    font-size: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .retractible{
+        height:20px;
+        font-size: 20px;
+    }
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;  /* for vertical scrollbars */
+    height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: rgba(210, 210, 210, 0.5);
 }

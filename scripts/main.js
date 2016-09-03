@@ -2,15 +2,19 @@
 
 // todo : trad eng fr
 // todo : remplir rules.json
+// todo : ask for LD quality site if to long to download
+/*var displayLDSite = false;
+setTimeout(function(){
+
+},5000);*/
 
 require.config({
-    //urlArgs: "bust=" + (new Date()).getTime(),
     paths: {
         jquery:"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min",//"./jquery-2.2.4.min",
         //cookie:"libs/jquery-cookie/jquery.cookie"
         bootstrap:"./libs/bootstrap.min", //"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min", //
         cytoscape:"./libs/cytoscape.min", // "http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min"
-        qtip:"https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min",//"./jquery.qtip.min",
+        qtip:"./libs/jquery.qtip.min", //"https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min",//
         "cytoscape-qtip":"./cytoscape-qtip",
         select2:"./libs/select2/select2.full.min",
         jqueryUI:"./libs/jquery-ui-sortable-and-effects/jquery-ui.min"
@@ -35,14 +39,40 @@ require.config({
         jqueryUI:{
             deps:["jquery"]
         }
-    }
-    //urlArgs: "bust=" + ( new Date().getTime() ) // Permet de faire croire qu"on va chercher fichiers différents, pour rdl tout sans avoir à vider le cache. Enlever à la fin.
+    },
+    waitSeconds: 30
 });
 
 //
 //
-require(["mainscreen","retractible-menu","bootstrap"], function(mainscreen, retractibleMenu) /// on peut mettre un chemin ici ou ds path.
+require(["jquery","mainscreen","retractibleMenu","help","bootstrap"], function($, mainscreen, retractibleMenu, help) /// on peut mettre un chemin ici ou ds path.
 {
+    $(".main-loading").hide();
     mainscreen();
     retractibleMenu();
+    help();
+    $(".main-body").show();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

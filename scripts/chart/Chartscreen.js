@@ -5,11 +5,13 @@
 
 define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
     "security/checkJSON","security/secureJSON","screenSelect2","config","jqueryUI","select2"],
-    function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenSelect2, config) {
+function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenSelect2, config) {
 
+    const SIDE_ATTACK = "ATTACK";
+    const SIDE_DEFENSE = "DEFENSE";
     const TEAM_ATTACK_PLACEHOLDER = "Choose attacker team";
     const TEAM_DEFENCE_PLACEHOLDER = "Choose defender team";
-    const MAP_PLACEHOLDER = "Choose map-filter (optional)";
+    const MAP_PLACEHOLDER = "Choose map (optional)";
     var DEFAULT_TEAM_ATTACK = [
         heroes.LUCIO,
         heroes.MERCY,
@@ -44,6 +46,7 @@ define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
         var teamAttack = $("#chart-menu-team-attack");
         var teamDefend = $("#chart-menu-team-defend");
         var map = $("#chart-menu-map");
+        var background = $(".chart-background");
 
 
         this.init = function(){
@@ -99,6 +102,22 @@ define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
                 map.select2("val")
                 // map.val() === map.select2("val")
             );
+            changeBackground(map.select2("val"));
+        }
+
+        function changeBackground(pMaps){
+            if (pMaps === undefined || pMaps === null || pMaps.length > 1){
+                background.css("background-image","");
+                background.css("background-position", "");
+                return;
+            }
+            var lMap = pMaps[0].split(" "); // ex: HANAMURA 1
+            var lSide = Math.random() > 0.5 ? SIDE_ATTACK : SIDE_DEFENSE; // todo: user can chose side (should i realy do it ?)
+            var lMapName = lMap[0];
+            var lPoint = lMap[1];
+            // IMPORTANT : don't use ../ , it's not the relative path from css, but from js (that is in html file thx requireJS), so ./, weird
+            background.css("background-image",'url("'+config.pathMap+ lSide +'/'+ lMapName +'/'+ lPoint +'.jpg")');
+            background.css("background-position", "top");
         }
 
         function listenToFileChange(){

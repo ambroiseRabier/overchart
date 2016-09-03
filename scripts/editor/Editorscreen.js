@@ -1,4 +1,8 @@
-
+/* Copyright (C) Ambroise Rabier - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Ambroise Rabier <rabier.ambroise@outlook.fr>, August 2016
+ */
 /**
  * Created by RABIERAmbroise on 10/08/2016.
  */
@@ -89,16 +93,18 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
 
         function onHeroeClick(pEvent){
             var $img = $(pEvent.target);
-            if ($img.data("heroe") === undefined)
+            var lHeroe = $img.data("heroe");
+            if (lHeroe === undefined)
                 return;
-            editorRelated.displayRelatedHeroes($img.data("heroe"), heroeData);
+            editorRelated.displayRelatedHeroes(lHeroe, heroeData);
             editorMapSynergy.show();
+
+            editorMapSynergy.display.show();
+            editorAdd.changeSelectFirstHeroe(lHeroe);
 
             jsonHeroesSelector.show();
             jsonHeroesSelector.css("top", $img.offset().top);
             jsonHeroesSelector.css("left", $img.offset().left);
-
-            editorMapSynergy.display.show();
         }
 
         this.refresh = function(pRefreshLevel){

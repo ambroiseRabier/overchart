@@ -45,6 +45,7 @@ function ($, cytoscape, qtip, cyqtip, config) {
                     name: 'cose'
                 },*/
 
+                //https://github.com/cytoscape/cytoscape.js/blob/master/documentation/md/style.md
                 style: [
                     {
                         selector: 'node',
@@ -63,7 +64,9 @@ function ($, cytoscape, qtip, cyqtip, config) {
                             'border-width':'data(borderWidth)',
                             'border-style':'solid',
                             'border-color':'data(borderColor)',
-                            'border-opacity':1
+                            'border-opacity':1,
+
+                            'visibility':'data(visible)'
                         }
                     },
 

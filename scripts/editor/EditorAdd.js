@@ -26,13 +26,17 @@ define(["jquery","../heroes","screenSelect2"], function ($, heroes, screenSelect
 
         this.init = function(){
             input.submit.click(onSubmitRelated);
-            screenSelect2.addHeroesSelect(input.heroFirst, HEROE_FIRST_PLACEHOLDER, function(){});
+            screenSelect2.addHeroesSelect(input.heroFirst, HEROE_FIRST_PLACEHOLDER, function(){}, true);
             input.filter.select2({
                 // will hide searchBar
                 minimumResultsForSearch: -1
             });
             screenSelect2.addHeroesSelect(input.heroSecond, HEROE_FIRST_PLACEHOLDER, function(){});
             listenToInputSwitch();
+        };
+
+        this.changeSelectFirstHeroe = function(pHeroe){
+            input.heroFirst.val(pHeroe).trigger("change");
         };
 
         function listenToInputSwitch(){
@@ -51,7 +55,7 @@ define(["jquery","../heroes","screenSelect2"], function ($, heroes, screenSelect
         }
 
         function onSubmitRelated(pEvent){
-            var reason = input.reason.val().toLowerCase();
+            var reason = input.reason.val();
             var command = "";
 
             if (lSwitchEasyDisplayed){

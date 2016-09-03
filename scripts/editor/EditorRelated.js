@@ -84,6 +84,31 @@ function ($, heroes, screenSelect2) {
 
                 result.append(liElement);
             }
+            if (pFilter === SYNERGY)
+                result.append(getReverseSynergy(pHeroe, pRuleFile));
+
+            return result;
+        }
+
+        function getReverseSynergy(pHeroe, pRuleFile){
+            var result = [];
+            for (var lHeroe in pRuleFile) {
+                if (!pRuleFile.hasOwnProperty(lHeroe))
+                    continue;
+                if (lHeroe === "meta")
+                    continue;
+                if (pRuleFile[lHeroe][SYNERGY][pHeroe] === undefined)
+                    continue;
+
+                var liElement =  $("<li></li>");
+                liElement.append(
+                    "<img src='./img/"+lHeroe+".png' class='editor-related-heroe-img'>" +
+                    "<div class='editor-related-heroe-text'>" +
+                    "<p><span>REASON:</span> "+pRuleFile[lHeroe][SYNERGY][pHeroe].reason+"</p>" +
+                    "</div>"
+                );
+                result.push(liElement);
+            }
             return result;
         }
 

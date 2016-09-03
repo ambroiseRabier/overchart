@@ -211,7 +211,8 @@ define(["../heroes","config"], function (heroes, config) {
                     img: './img/'+pHeroesSide[i]+'.png',
                     tip: createTip(pHeroesSide[i], pSide),
                     borderWidth:'3px',
-                    borderColor:getBorderColor(pHeroesSide[i], pMaps, pSide)
+                    borderColor:getBorderColor(pHeroesSide[i], pMaps, pSide),
+                    visible:pHeroesSide[i] === heroes.PLACEHOLDER ? "hidden" : "visible" // todo: remove the grey color used before to hide
                 }
             });
             uniqueID++;

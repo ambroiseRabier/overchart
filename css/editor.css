@@ -1,9 +1,13 @@
 
+.editorscreen{
+    /*margin-bottom: 50px;*/
+}
 
 .editor-menu{
     width: 100%;
     position: relative;
-    margin-bottom: 50px;
+    padding-bottom: 20px;
+    background-color: rgb(51, 51, 51);
 }
 
 .editor-btn-save{
@@ -58,9 +62,7 @@
 }
 
 .editor-related-heroe-img{
-    width: 60px;
-    height: auto;
-    display: inline-block;
+    height: 60px;
     background-color:chocolate;
 }
 
@@ -70,10 +72,14 @@
 }
 
 .editor-heroe-list li{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     background-color: wheat;
     text-align: left;
-    /* position relativ so delete button can be placed on absolute on right 0px*/
-    position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .editor-heroe-list h1{
@@ -82,9 +88,11 @@
 }
 
 .editor-related-heroe-text{
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 18px;
+    margin-left: 10px;
+    /* distibute remaining space to this element */
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
 }
 
 .editor-related-heroe-text p{
@@ -93,6 +101,13 @@
 
 .editor-related-heroe-text p span{
     font-weight: bold;
+}
+
+/* todo: rename editor-related-delete*/
+.editor-delete-related{
+    color:sienna;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
 }
 
 .editor-add-related{
@@ -112,14 +127,9 @@
     display: none;
 }
 
-.editor-delete-related{
-    position: absolute;
-    right: 0px;
-    color:sienna;
-}
-
 .editor-map-synergy{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .editor-map-synergy-header{
@@ -149,13 +159,20 @@
     position: relative;
     background-color: ghostwhite;
     opacity: 0.6;
-    font-size: 2.5em;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     margin-left: 5px;
     margin-right: 5px;
     cursor: pointer;
+}
+
+.editor-point-circle{
+    width: 50px;
+    height: 50px;
+    font-size: 2.5em;
+    border-radius: 50%;
+}
+
+.editor-point-square{
+    font-size: 1.35em;
 }
 
 .editor-map-synergy img{
@@ -173,6 +190,7 @@
     -webkit-transition: -webkit-transform 0.4s;
     transition: -webkit-transform 0.4s;
     transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }

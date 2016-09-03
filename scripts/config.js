@@ -24,6 +24,15 @@ define(['jquery'], function ($) {
     };
 
     config.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
+    config.pixelRatio = window.devicePixelRatio;
+    config.pathMap = "./img/raw/map/"; // should change whit pixelRatio
+
+    //console.log(window.strUser);
+    //<?php $lang = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']); ?>
+    //<script type="text/javascript">var strUser = <?php echo json_encode($lang); ?>;</script>
+    // configure php interpreter jetbrain..
+
+
 
     return config;
 });

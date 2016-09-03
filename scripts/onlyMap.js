@@ -20,6 +20,7 @@ define([], function () {
         HOLLYWOOD:"Hollywood",
         KING_ROW:"King's Row",
         NUMBANI:"Numbani",
+        EINCHELWALDE:"Einchelwalde",
 
         // Control maps
         ILIOS:"Ilios",

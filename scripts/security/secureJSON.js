@@ -31,13 +31,12 @@ define([], function () {
                     obj[k] = escapeHtml(obj[k]);
                 else
                     valueIsNotString = true;
-                // do something...
             }
         }
-
         nbEachRecursive--;
         if (nbEachRecursive === 0)
             pCallBack();
+
     }
 
     return eachRecursive;
