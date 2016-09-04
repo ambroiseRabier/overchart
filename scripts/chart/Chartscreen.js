@@ -116,7 +116,7 @@ function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenS
             var lMapName = lMap[0];
             var lPoint = lMap[1];
             // IMPORTANT : don't use ../ , it's not the relative path from css, but from js (that is in html file thx requireJS), so ./, weird
-            background.css("background-image",'url("'+config.pathMap+ lSide +'/'+ lMapName +'/'+ lPoint +'.jpg")');
+            background.css("background-image",'url("'+config.pathMapChart+ lSide +'/'+ lMapName +'/'+ lPoint +'.jpg")');
             background.css("background-position", "top");
         }
 

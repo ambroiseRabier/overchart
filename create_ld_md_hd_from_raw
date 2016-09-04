@@ -1,0 +1,14 @@
+# to use write in git bash: ./create_ld_md_hd_from_raw
+# chmod +x create_ld_md_hd_from_raw may be needed ??
+# using absolute path to avoid messing whit system file if wrongly used..
+# /* or ""
+# \> to avoid enlarge
+echo "processing ld"
+cp -R "C:/Documents/vacances 2016/overchart/img/raw/." "C:/Documents/vacances 2016/overchart/img/ld"
+find "C:/Documents/vacances 2016/overchart/img/ld" -name '*.jpg' | while read f; do convert "$f" -resize 320x170\> "$f"; done
+echo "processing md"
+cp -R "C:/Documents/vacances 2016/overchart/img/raw/." "C:/Documents/vacances 2016/overchart/img/md"
+find "C:/Documents/vacances 2016/overchart/img/md" -name '*.jpg' | while read f; do convert "$f" -resize 640x340\> "$f"; done
+echo "processing hd"
+cp -R "C:/Documents/vacances 2016/overchart/img/raw/." "C:/Documents/vacances 2016/overchart/img/hd"
+find "C:/Documents/vacances 2016/overchart/img/hd" -name '*.jpg' | while read f; do convert "$f" -resize 960x510\> "$f"; done

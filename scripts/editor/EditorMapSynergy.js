@@ -38,7 +38,7 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
 
         function createMapElement(mapName, mapArrayPoints){
             var result = $("<div class='editor-map-synergy-element'></div>");
-            result.append("<img src='"+config.pathMap+mapName+".jpg'>");
+            result.append("<img src='"+config.pathMapEditor+mapName+".jpg'>");
 
             var container = $("<div class='editor-map-synergy-element-point-container'></div>");
             for (var i=0;i<mapArrayPoints.length;i++){
@@ -192,13 +192,13 @@ define(["jquery","mapsSorted","config"], function ($, mapSorted, config) {
         // pParams: {$img, side, map, point}
         function displayMapPoint(pParams){
             if (pParams.point === undefined)
-                pParams.$img.attr("src",config.pathMap+pParams.map+".jpg");
+                pParams.$img.attr("src",config.pathMapEditor+pParams.map+".jpg");
             else{
                 // i don't want double of img for control map
                 if (!mapSorted.isControlMap(pParams.map))
-                    pParams.$img.attr("src",config.pathMap + pParams.side +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
+                    pParams.$img.attr("src",config.pathMapEditor + pParams.side +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
                 else
-                    pParams.$img.attr("src",config.pathMap + SIDE_ATTACK +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
+                    pParams.$img.attr("src",config.pathMapEditor + SIDE_ATTACK +"/"+ pParams.map +"/"+ pParams.point + ".jpg");
             }
         }
 
