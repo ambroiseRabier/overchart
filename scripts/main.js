@@ -40,7 +40,8 @@ require.config({
             deps:["jquery"]
         }
     },
-    waitSeconds: 30
+    waitSeconds: 30 // before timeout
+    //urlArgs:"1.0.0" // will work only on js..
 });
 
 //

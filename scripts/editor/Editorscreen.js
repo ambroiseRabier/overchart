@@ -116,8 +116,36 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             }
         };
 
-        // todo: vérifier fonctionnement
-        var saveData = (function () {
+        // http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+        var download = function(content, fileName, mimeType) {
+            var a = document.createElement('a');
+            mimeType = mimeType || 'application/octet-stream';
+
+            if (navigator.msSaveBlob) { // IE10
+                return navigator.msSaveBlob(new Blob([content], { type: mimeType }),     fileName);
+            } else if ('download' in a) { //html5 A[download]
+                a.href = 'data:' + mimeType + ',' + encodeURIComponent(content);
+                a.setAttribute('download', fileName);
+                document.body.appendChild(a);
+                setTimeout(function() {
+                    a.click();
+                    document.body.removeChild(a);
+                }, 66);
+                return true;
+            } else { //do iframe dataURL download (old ch+FF):
+                var f = document.createElement('iframe');
+                document.body.appendChild(f);
+                f.src = 'data:' + mimeType + ',' + encodeURIComponent(content);
+
+                setTimeout(function() {
+                    document.body.removeChild(f);
+                }, 333);
+                return true;
+            }
+        };
+
+        // todo: vérifier fonctionnement +// marche pas sur firefox..
+        /*var saveData = (function () {
             var a = document.getElementById("editor-save");
             return function (data, fileName) {
                 var json = JSON.stringify(data),
@@ -128,14 +156,15 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
                 a.click();
                 window.URL.revokeObjectURL(url);
             };
-        }());
+        }());*/
 
         function onSave(pEvent){
             if (_this.ruleFile === undefined)
                 return;
             //var blob = new Blob([JSON.stringify(_this.ruleFile)], {type: "text/plain;charset=utf-8"});
             //var file = new File([blob], SAVE_NAME);
-            saveData(_this.ruleFile, SAVE_NAME);
+            //saveData(_this.ruleFile, SAVE_NAME);
+            download(_this.ruleFile, SAVE_NAME, "text/javascript");
         }
 
 
