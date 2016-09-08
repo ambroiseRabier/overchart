@@ -115,6 +115,8 @@ function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenS
             var lSide = Math.random() > 0.5 ? SIDE_ATTACK : SIDE_DEFENSE; // todo: user can chose side (should i realy do it ?)
             var lMapName = lMap[0];
             var lPoint = lMap[1];
+            if (lMap[2] !== undefined)
+                lPoint == lMap[2]; // control garden for example, maybe i shoould just add an underscore !!!
             // IMPORTANT : don't use ../ , it's not the relative path from css, but from js (that is in html file thx requireJS), so ./, weird
             background.css("background-image",'url("'+config.pathMapChart+ lSide +'/'+ lMapName +'/'+ lPoint +'.jpg")');
             background.css("background-position", "top");

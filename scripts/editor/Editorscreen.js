@@ -36,6 +36,9 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             $(".editor-create").click(editorAdd.addNewJSON);
             $(".editor-load-default").click(onDefaultJSON);
             hackCssPlaceholder();
+            window.dumpRuleFile = function(){ // wtf bug on firefox, file is downloaded at 100% but file is void !
+                return _this.ruleFile;
+            }
         };
 
         function hackCssPlaceholder(){
@@ -109,7 +112,7 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             var lHeroe = $img.data("heroe");
             if (lHeroe === undefined)
                 return;
-            current$img = $img
+            current$img = $img;
             editorRelated.displayRelatedHeroes(lHeroe, heroeData);
             editorMapSynergy.show();
 
@@ -122,6 +125,8 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
         }
 
         function onResize(pEvent){
+            if (current$img === undefined)
+                return;
             jsonHeroesSelector.css("top", current$img.offset().top);
             jsonHeroesSelector.css("left", current$img.offset().left);
         }
@@ -137,12 +142,12 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
 
         // http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
         var download = function(content, fileName, mimeType) {
-            var a = document.createElement('a');
             mimeType = mimeType || 'application/octet-stream';
 
             if (navigator.msSaveBlob) { // IE10
                 return navigator.msSaveBlob(new Blob([content], { type: mimeType }),     fileName);
             } else if ('download' in a) { //html5 A[download]
+                var a = document.createElement('a');
                 a.href = 'data:' + mimeType + ',' + encodeURIComponent(content);
                 a.setAttribute('download', fileName);
                 document.body.appendChild(a);
