@@ -47,14 +47,26 @@
     background-color: darkorange;
 }
 
-.editor-json-heroes img{
+.editor-json-heroes-role{
+    display: inline-block;
+}
+
+.editor-json-heroes-role img{
     background-color: rgb(238,238,238);
     width: 112px;
     height:100px;
 }
 
-.editor-json-heroes img:hover{
+.editor-json-heroes-role img:hover{
     background-color: white;
+}
+
+.editor-json-heroes-role .img-role{
+    background-color: transparent;
+}
+
+.editor-json-heroes-role .img-role:hover{
+    background-color: initial;
 }
 
 .editor-heroe-data{
@@ -226,15 +238,37 @@
     top:30px;
 }
 
-
-
 /*********************************/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1600px) {
     .editor-json-heroes img, .editor-json-selected{
         /* 3/4 size*/
         width: 84px;
         height:75px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .editor-json-heroes img, .editor-json-selected{
+        width: 73px;
+        height:65px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .editor-json-heroes img, .editor-json-selected{
+        width: 56px;
+        height:50px;
+    }
+    .editor-json-heroes-role{
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .editor-json-heroes img, .editor-json-selected{
+        width: 56px;
+        height:50px;
     }
     #editor-input-reason{
         width: 100%;
@@ -252,6 +286,9 @@
         width: initial;
         margin-top: initial;
     }
+    .editor-json-heroes-role{
+        display: block;
+    }
 }
 
 @media screen and (max-width: 544px) {
@@ -259,5 +296,16 @@
         /* half size*/
         width: 56px;
         height:50px;
+    }
+    .editor-json-heroes-role .img-role{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .editor-json-heroes img, .editor-json-selected{
+        /* half size *0.7*/
+        width: 39px;
+        height:35px;
     }
 }

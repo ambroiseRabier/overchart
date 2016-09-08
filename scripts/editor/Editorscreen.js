@@ -8,14 +8,15 @@
  */
 
 define(["jquery","editor/EditorAdd","editor/EditorRelated","editor/EditorMapSynergy",
-    "security/checkJSON", "security/secureJSON", "config"],
-function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, config) {
+    "security/checkJSON", "security/secureJSON", "config","heroesSorted"],
+function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, config, heroesSorted) {
     /** @const */ var SAVE_NAME = "rules.json";
 
     return function(){
         this.display = $(".editorscreen");
         this.ruleFile;
         this.currentDisplayedHero = "";
+        var current$img;
         var _this = this;
         var editorAdd = new EditorAdd(this);
         var editorRelated = new EditorRelated(this);
@@ -29,6 +30,7 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
         this.init = function(){
             inputFile.change(onFileJsonChange);
             jsonHeroes.click(onHeroeClick); // not on img itself because img aren't displayed yet
+            window.onresize = onResize;
             $(".editor-save").click(onSave);
             editorAdd.init();
             $(".editor-create").click(editorAdd.addNewJSON);
@@ -78,17 +80,28 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
         }
 
         function displayHeroes(pFile){
-            jsonHeroes.html("");
+            jsonHeroes.show();
+            //jsonHeroes.html("");
+
+            for (var pRole in heroesSorted){
+                for (var i=0; i<heroesSorted[pRole].length; i++){
+                    if (!pFile.hasOwnProperty(heroesSorted[pRole][i]))
+                        continue;
+                    addHero(pRole, heroesSorted[pRole][i]);
+                }
+            }
+            /*
             for (var pHeroe in pFile){
                 if (pHeroe === "meta")
                     continue;
+
                 addHero(pHeroe);
-            }
+            }*/
         }
 
-        function addHero(pHeroe){
+        function addHero(pRole, pHeroe){
             // create div or something whit img
-            jsonHeroes.append("<img data-heroe='"+pHeroe+"' src='./img/"+pHeroe+".png'>");
+            jsonHeroes.find('[data-role="'+pRole+'"]').append("<img data-heroe='"+pHeroe+"' src='./img/"+pHeroe+".png'>");
         }
 
         function onHeroeClick(pEvent){
@@ -96,6 +109,7 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             var lHeroe = $img.data("heroe");
             if (lHeroe === undefined)
                 return;
+            current$img = $img
             editorRelated.displayRelatedHeroes(lHeroe, heroeData);
             editorMapSynergy.show();
 
@@ -105,6 +119,11 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             jsonHeroesSelector.show();
             jsonHeroesSelector.css("top", $img.offset().top);
             jsonHeroesSelector.css("left", $img.offset().left);
+        }
+
+        function onResize(pEvent){
+            jsonHeroesSelector.css("top", current$img.offset().top);
+            jsonHeroesSelector.css("left", current$img.offset().left);
         }
 
         this.refresh = function(pRefreshLevel){
@@ -164,7 +183,7 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
             //var blob = new Blob([JSON.stringify(_this.ruleFile)], {type: "text/plain;charset=utf-8"});
             //var file = new File([blob], SAVE_NAME);
             //saveData(_this.ruleFile, SAVE_NAME);
-            download(_this.ruleFile, SAVE_NAME, "text/javascript");
+            download(JSON.stringify(_this.ruleFile), SAVE_NAME, "text/json");
         }
 
 

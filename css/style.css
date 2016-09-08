@@ -47,3 +47,13 @@
 {
     background: rgba(210, 210, 210, 0.5);
 }
+
+.select2-results ul {
+    max-height: 60vh !important;
+}
+
+@media screen and (max-height: 600px) {
+    .select2-results ul {
+        max-height: 200px !important;
+    }
+}

@@ -100,9 +100,6 @@
     font-weight: bold;
 }
 
-
-
-
 @media screen and (max-width: 992px) {
     .chart-menu-team-container{
         width: 95%;

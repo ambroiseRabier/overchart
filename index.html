@@ -100,7 +100,8 @@
             <button type="button" class="btn btn-primary editor-create" title="create your JSON"/>
                 Create
             </button>
-            <button type="button" class="btn btn-primary editor-load-default" title="example JSON"/>
+            <!-- UNACTIVE BTN -->
+            <button type="button" class="btn btn-primary editor-load-default" title="example JSON" style="display: none;"/>
                 Example
             </button>
             <button type="button" class="btn btn-primary editor-back" title="return to menu"/>
@@ -109,7 +110,12 @@
             <div class="help" data-help="editor-menu"><i class="icon-help-circled" aria-hidden="true"></i></div>
         </div>
         <span class="editor-json-selected"></span>
-        <div class="editor-json-heroes"></div>
+        <div class="editor-json-heroes" style="display: none;">
+            <div class="editor-json-heroes-role" data-role="ATTACK"><img src="./img/OffenseIcon.png" alt="" class="img-role"></div>
+            <div class="editor-json-heroes-role" data-role="DEFENSE"><img src="./img/DefenseIcon.png" alt="" class="img-role"></div>
+            <div class="editor-json-heroes-role" data-role="TANK"><img src="./img/TankIcon.png" alt="" class="img-role"></div>
+            <div class="editor-json-heroes-role" data-role="SUPPORT"><img src="./img/SupportIcon.png" alt="" class="img-role"></div>
+        </div>
         <div class="editor-add-related" style="display: none;">
             <div class="editor-input-container">
 

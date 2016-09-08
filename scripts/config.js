@@ -21,7 +21,7 @@ define(['jquery'], function ($) {
     };
 
     config.chart = {
-        DEFAULT_JSON_PATH:"./rules.json",
+        DEFAULT_JSON_PATH:"./rules_fr.json",
         NODE_COLOR_BACKGROUND:"rgb(238,238,238)", // some grey
         EDGE_COLOR_WEAKTO:"red",
         EDGE_COLOR_SYNERGY:"rgb(0, 238, 0)",
