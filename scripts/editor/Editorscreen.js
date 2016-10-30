@@ -143,11 +143,12 @@ function ($, EditorAdd, EditorRelated, EditorMapSynergy, checkJSON, secureJSON, 
         // http://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
         var download = function(content, fileName, mimeType) {
             mimeType = mimeType || 'application/octet-stream';
+            var a = document.createElement('a');
 
             if (navigator.msSaveBlob) { // IE10
                 return navigator.msSaveBlob(new Blob([content], { type: mimeType }),     fileName);
             } else if ('download' in a) { //html5 A[download]
-                var a = document.createElement('a');
+
                 a.href = 'data:' + mimeType + ',' + encodeURIComponent(content);
                 a.setAttribute('download', fileName);
                 document.body.appendChild(a);
