@@ -4,8 +4,8 @@
  */
 
 define(["jquery","../heroes","chart/chart","chart/chartElementsCreator",
-    "security/checkJSON","security/secureJSON","screenSelect2","config","jqueryUI","select2"],
-function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenSelect2, config) {
+    "security/checkJSON","security/secureJSON","screenSelect2","config","chart/teamCreator","jqueryUI","select2"],
+function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenSelect2, config, teamCreator) {
 
     /** @const */ var SIDE_ATTACK = "ATTACK";
     /** @const */ var SIDE_DEFENSE = "DEFENSE";
@@ -96,13 +96,25 @@ function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenS
         }
 
         function onOptionsChange(pEvent){
-            createChart(
-                _this.ruleFiles,
-                getTeamVal(),
-                map.select2("val")
-                // map.val() === map.select2("val")
-            );
-            changeBackground(map.select2("val"));
+            if (_this.ruleFiles === undefined || _this.ruleFiles.length === 0)
+                $.getJSON(config.chart.DEFAULT_JSON_PATH, function(pData){
+                    _this.ruleFiles = [pData];
+                    JSONLoadCompleted();
+                });
+            else
+                JSONLoadCompleted();
+
+            function JSONLoadCompleted () {
+                createChart(
+                    _this.ruleFiles,
+                    getTeamVal(),
+                    map.select2("val")
+                    // map.val() === map.select2("val")
+                );
+                changeBackground(map.select2("val"));
+
+                console.log(teamCreator(getTeamVal().ATTACK, _this.ruleFiles[0]));
+            }
         }
 
         function changeBackground(pMaps){
@@ -129,6 +141,8 @@ function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenS
                 var lLength = pEvent.target.files.length;
 
                 jsonBeingSecured = 0;
+
+                _this.ruleFiles = [];
 
                 // should be named onloaded (end)..
                 fileReader.onload = function(e) {
@@ -165,7 +179,7 @@ function ($, heroes, Chart, chartElementsCreator, checkJSON, secureJSON, screenS
 
         function newJSONCheckFailed(){
             console.error("JSON has been checked, he might not be secure");
-            _this.ruleFiles = {};
+            _this.ruleFiles = [];
         }
 
         function onChartLoaded(){
