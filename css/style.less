@@ -1,0 +1,59 @@
+.retractible{
+    height:15px;
+    background-color: #00b3ee;
+    color:white;
+    margin: auto;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.retractible-fa-correction{
+    position: relative;
+    top: -8px;
+}
+
+.help{
+    display: inline-block;
+    color:white;
+    font-size: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .retractible{
+        height:20px;
+        font-size: 20px;
+    }
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;  /* for vertical scrollbars */
+    height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: rgba(210, 210, 210, 0.5);
+}
+
+.select2-results ul {
+    max-height: 60vh !important;
+}
+
+@media screen and (max-height: 600px) {
+    .select2-results ul {
+        max-height: 200px !important;
+    }
+}

@@ -1,0 +1,146 @@
+
+@tipFontSize: 1.1em;
+@WEAKTO_COLOR:red;
+@SYNERGY_COLOR:green;
+
+.chartscreen{
+    height: 100vh;
+}
+
+.chart-menu{
+    text-align: center;
+    background-color: rgba(91,91,91,0.5);
+    overflow: hidden;
+    padding-bottom: 1px;
+}
+
+.chart-menu-flag{
+    height: 30px;
+    width: auto;
+    padding-right: 10px;
+}
+
+.chart-menu .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    /* center li element*/
+    /*width: inherit;*//* conflict whit placeholder :/*/
+    /*maybe not anymore whit width hack in js*/
+}
+
+
+#chart-input-file{
+    color:white;
+    display: inline-block;
+}
+
+#chart-cy {
+    /* no display:none in html then .show() or chart won't show*/
+    /*height:100vw;*//*400px;*/
+
+    /*width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+
+    bottom:0;*/
+    /*z-index: -1;*/
+
+    /*top: 0;*/
+
+    position: relative;
+    height: 60%;
+    margin:auto;
+    width: 90%;
+}
+
+.chart-loading{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    color:white;
+}
+
+.tip-synergy{
+    color: @SYNERGY_COLOR;
+    font-size: @tipFontSize;
+}
+
+.tip-weak{
+    color: @WEAKTO_COLOR;
+    font-size: @tipFontSize;
+}
+
+/* http://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and */
+.qtip ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+}
+
+.abstract-qtip{
+    display: block;
+    float: left;
+    width: 1.2em;
+}
+
+.qtip li.tip-synergy:before{
+    content: "+";
+   .abstract-qtip;
+    color:@SYNERGY_COLOR;
+    font-weight: bolder;
+}
+
+.qtip li.tip-weak:before{
+    content: "-";
+    .abstract-qtip;
+    color:@WEAKTO_COLOR;
+    /*font-size: 2em;*/
+}
+
+.tip-hero-name{
+    font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+    .chart-menu-team-container{
+        width: 95%;
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 992px) {
+    .chart-menu-team-container{
+        width: 75%;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 544px) {
+
+}
+
+@media screen and (orientation: landscape) {
+    /*#chart-cy{
+        height: 60vh;
+    }*/
+}
+
+@media screen and (orientation: portrait) {
+
+}
+
+
+
+
+
+
+
+

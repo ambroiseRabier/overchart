@@ -1,0 +1,490 @@
+.chartscreen {
+  height: 100vh;
+}
+.chart-menu {
+  text-align: center;
+  background-color: rgba(91, 91, 91, 0.5);
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+.chart-menu-flag {
+  height: 30px;
+  width: auto;
+  padding-right: 10px;
+}
+.chart-menu .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  /* center li element*/
+  /*width: inherit;*/
+  /* conflict whit placeholder :/*/
+  /*maybe not anymore whit width hack in js*/
+}
+#chart-input-file {
+  color: white;
+  display: inline-block;
+}
+#chart-cy {
+  /* no display:none in html then .show() or chart won't show*/
+  /*height:100vw;*/
+  /*400px;*/
+  /*width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+
+    bottom:0;*/
+  /*z-index: -1;*/
+  /*top: 0;*/
+  position: relative;
+  height: 60%;
+  margin: auto;
+  width: 90%;
+}
+.chart-loading {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: white;
+}
+.tip-synergy {
+  color: green;
+  font-size: 1.1em;
+}
+.tip-weak {
+  color: red;
+  font-size: 1.1em;
+}
+/* http://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and */
+.qtip ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+.qtip li.tip-synergy:before {
+  content: "+";
+  display: block;
+  float: left;
+  width: 1.2em;
+  color: green;
+  font-weight: bolder;
+}
+.qtip li.tip-weak:before {
+  content: "-";
+  display: block;
+  float: left;
+  width: 1.2em;
+  color: red;
+  /*font-size: 2em;*/
+}
+.tip-hero-name {
+  font-weight: bold;
+}
+@media screen and (max-width: 992px) {
+  .chart-menu-team-container {
+    width: 95%;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 992px) {
+  .chart-menu-team-container {
+    width: 75%;
+    display: inline-block;
+  }
+}
+@media screen and (orientation: landscape) {
+  /*#chart-cy{
+        height: 60vh;
+    }*/
+}
+.editorscreen {
+  /*margin-bottom: 50px;*/
+}
+.editor-menu {
+  width: 100%;
+  position: relative;
+  padding-bottom: 20px;
+  background-color: #333333;
+}
+.editor-btn-save {
+  display: inline-block;
+  margin-left: 40px;
+}
+#editor-input-file {
+  display: inline-block;
+  color: white;
+}
+.editor-input-container {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+  position: relative;
+}
+#editor-input-reason {
+  display: inline-block;
+  width: 49%;
+}
+.editor-input-submit {
+  display: inline-block;
+  width: 5em;
+  margin-top: 10px;
+}
+.editor-json-heroes {
+  width: 100%;
+  text-align: center;
+  background-color: darkorange;
+}
+.editor-json-heroes-role {
+  display: inline-block;
+}
+.editor-json-heroes-role img {
+  background-color: #eeeeee;
+  width: 112px;
+  height: 100px;
+}
+.editor-json-heroes-role img:hover {
+  background-color: white;
+}
+.editor-json-heroes-role .img-role {
+  background-color: transparent;
+}
+.editor-json-heroes-role .img-role:hover {
+  background-color: initial;
+}
+.editor-heroe-data {
+  width: 100%;
+}
+.editor-related-heroe-img {
+  height: 60px;
+  background-color: chocolate;
+}
+.editor-heroe-list {
+  text-align: center;
+  padding-right: 40px;
+}
+.editor-heroe-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: wheat;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.editor-heroe-list h1 {
+  /*background-color: white;*/
+  display: inline-block;
+}
+.editor-related-heroe-text {
+  margin-left: 10px;
+  /* distibute remaining space to this element */
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.editor-related-heroe-text p {
+  margin: 0;
+}
+.editor-related-heroe-text p span {
+  font-weight: bold;
+}
+/* todo: rename editor-related-delete*/
+.editor-delete-related {
+  color: sienna;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+.editor-add-related {
+  text-align: center;
+  background-color: cornflowerblue;
+  padding: 10px;
+}
+.editor-json-selected {
+  /* same size as img of hero */
+  position: absolute;
+  width: 112px;
+  height: 100px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: 3px solid darkorange;
+  display: none;
+}
+.editor-map-synergy {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.editor-map-synergy-element {
+  position: relative;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.editor-map-synergy-element-point-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -20%);
+  transform: translate(-50%, -20%);
+  white-space: nowrap;
+}
+.editor-map-synergy-element-point {
+  display: inline-block;
+  position: relative;
+  background-color: ghostwhite;
+  opacity: 0.6;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.editor-point-circle {
+  width: 50px;
+  height: 50px;
+  font-size: 2.5em;
+  border-radius: 50%;
+}
+.editor-point-square {
+  font-size: 1.35em;
+}
+.editor-map-synergy img {
+  width: 320px;
+  height: 170px;
+  z-index: 0;
+}
+.editor-map-synergy-element:hover {
+  z-index: 2;
+}
+.editor-map-synergy img:hover {
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.editor-map-synergy-element-point:hover {
+  opacity: 1;
+}
+.editorscreen span.selection > span {
+  height: 31px;
+}
+.editor-input-first-heroe-container {
+  display: inline-block;
+  width: 40%;
+}
+.editor-input-second-heroe-container {
+  display: inline-block;
+  width: 40%;
+}
+.editor-input-choice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  color: black;
+}
+.editor-input-container-easy {
+  position: relative;
+  top: 30px;
+}
+/*********************************/
+@media screen and (max-width: 1600px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    /* 3/4 size*/
+    width: 84px;
+    height: 75px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    width: 73px;
+    height: 65px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    width: 56px;
+    height: 50px;
+  }
+  .editor-json-heroes-role {
+    display: inline-block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    width: 56px;
+    height: 50px;
+  }
+  #editor-input-reason {
+    width: 100%;
+  }
+  .editor-input-container {
+    width: 100%;
+  }
+  .editor-input-choice {
+    display: none;
+  }
+  .editor-input-container-easy {
+    position: initial;
+  }
+  .editor-input-submit {
+    width: initial;
+    margin-top: initial;
+  }
+  .editor-json-heroes-role {
+    display: block;
+  }
+}
+@media screen and (max-width: 544px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    /* half size*/
+    width: 56px;
+    height: 50px;
+  }
+  .editor-json-heroes-role .img-role {
+    display: none;
+  }
+}
+@media screen and (max-width: 350px) {
+  .editor-json-heroes img,
+  .editor-json-selected {
+    /* half size *0.7*/
+    width: 39px;
+    height: 35px;
+  }
+}
+.switch-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+.switch-text-attack,
+.switch-text-defense {
+  font-size: 2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.switch-text-attack {
+  color: red;
+}
+.switch-text-defense {
+  color: deepskyblue;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: darkred;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: red;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: darkblue;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px darkblue;
+}
+input:checked + .slider:before {
+  background-color: deepskyblue;
+}
+/*
+input:focus + .slider {
+    box-shadow: 0 0 1px deepskyblue;
+}*/
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.retractible {
+  height: 15px;
+  background-color: #00b3ee;
+  color: white;
+  margin: auto;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+.retractible-fa-correction {
+  position: relative;
+  top: -8px;
+}
+.help {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .retractible {
+    height: 20px;
+    font-size: 20px;
+  }
+}
+::-webkit-scrollbar {
+  width: 12px;
+  /* for vertical scrollbars */
+  height: 12px;
+  /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(210, 210, 210, 0.5);
+}
+.select2-results ul {
+  max-height: 60vh !important;
+}
+@media screen and (max-height: 600px) {
+  .select2-results ul {
+    max-height: 200px !important;
+  }
+}
